@@ -12,6 +12,7 @@ def fuzzy_merge(df1,
           keep_right='all',
           method='exact',
           threshold=0.6,
+          keep_degree=False,
           **kwargs):
     """Fuzzy matching between two dataframes
 
@@ -110,11 +111,14 @@ def fuzzy_merge(df1,
 
     if isinstance(keep_right, str):
         keep_right = [keep_right]
-
+    
     output = []
     output.extend(['1.' + col for col in (keep_left or left_on)])
     output.extend(['2.' + col for col in (keep_right or right_on)])
-
+    
+    if keep_degree:
+        output.append('degree')
+    
     if not isinstance(method, list):
         method = [method]
 
