@@ -67,7 +67,9 @@ def fuzzy_merge(df1,
     ignore_titles : bool, default False
         Ignore a predefined list of name titles (such as Mr, Ms, etc)
     join : { 'inner', 'left-outer', 'right-outer', 'full-outer' }
-
+    keep_degree : bool, default False
+        Keep the record of match confindence in a separate column named degree
+    
     Returns
     -------
     pd.DataFrame
